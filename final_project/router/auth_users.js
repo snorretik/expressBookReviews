@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 let books = require("./booksdb.js");
 const regd_users = express.Router();
 
-let users = [];
+let users = [{"username": "Niels", "password": "password123"}];
 
 const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
@@ -15,8 +15,7 @@ const authenticatedUser = (username,password)=>{ //returns boolean
 
 //only registered users can login
 regd_users.post("/login", (req,res) => {
-  //Write your code here
-  return res.status(300).json({message: "Yet to be implemented"});
+  
 });
 
 // Add a book review
