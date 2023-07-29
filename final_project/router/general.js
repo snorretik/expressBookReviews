@@ -8,15 +8,20 @@ const public_users = express.Router();
 public_users.post("/register", (req,res) => {
     username = req.body.username;
     password = req.body.password;
-    if (username && password) {
+    if ((username && password) && isValid(username)) {
+        let boolNew = true;
+
         for (let i = 0; i < users.length; i++) {
             if (username == users[i].username) {
                 res.send("This username already exists");
+                boolNew = false;
             } 
-        }        
-        let objectToPush = { "username": username, "password": password }
-        users.push(objectToPush);
-        res.send("Username and password combo succesfully registered!");
+        }
+        if (boolNew) {
+            let objectToPush = { "username": username, "password": password }
+            users.push(objectToPush);
+            res.send("Username and password combo succesfully registered!");
+        }
     } else {
         res.send("Registration failed, please try again")
     }
