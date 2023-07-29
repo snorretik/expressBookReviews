@@ -42,14 +42,14 @@ public_users.get('/author/:author',function (req, res) {
     const arrayBooks = Object.keys(books);
     let returnObject = {};
 
-    for (let i = 1; i <= arrayBooks.length; i++) {
-        const valuesBook = Object.values(books[i]);
+    for (let i = 0; i < arrayBooks.length; i++) {
+        const valuesBook = Object.values(books[i + 1]);
         
         let stringObjAuthor = valuesBook[0].split(" ").join("");
         let stringReqAuthor = req.params.author;
 
         if (stringObjAuthor.toLowerCase() == stringReqAuthor.toLowerCase()) {
-            returnObject = books[i];
+            returnObject = books[i + 1];
         }
     }
 
@@ -61,14 +61,14 @@ public_users.get('/title/:title',function (req, res) {
     const arrayBooks = Object.keys(books);
     let returnObject = {};
 
-    for (let i = 1; i <= arrayBooks.length; i++) {
-        const valuesBook = Object.values(books[i]);
+    for (let i = 0; i < arrayBooks.length; i++) {
+        const valuesBook = Object.values(books[i + 1]);
         
         let stringObjAuthor = valuesBook[1].split(" ").join("");
         let stringReqAuthor = req.params.title;
 
         if (stringObjAuthor.toLowerCase() == stringReqAuthor.toLowerCase()) {
-            returnObject = books[i];
+            returnObject = books[i + 1];
         }
     }
 
