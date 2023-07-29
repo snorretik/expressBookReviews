@@ -42,7 +42,7 @@ public_users.get('/author/:author',function (req, res) {
     const arrayBooks = Object.keys(books);
     let returnObject = {};
 
-    for (let i = 1; i < arrayBooks.length; i++) {
+    for (let i = 1; i <= arrayBooks.length; i++) {
         const valuesBook = Object.values(books[i]);
         
         let stringObjAuthor = valuesBook[0].split(" ").join("");
@@ -61,7 +61,7 @@ public_users.get('/title/:title',function (req, res) {
     const arrayBooks = Object.keys(books);
     let returnObject = {};
 
-    for (let i = 1; i < arrayBooks.length; i++) {
+    for (let i = 1; i <= arrayBooks.length; i++) {
         const valuesBook = Object.values(books[i]);
         
         let stringObjAuthor = valuesBook[1].split(" ").join("");
